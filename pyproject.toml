@@ -12,7 +12,6 @@ license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Agent Runtime Protocol" }]
 classifiers = [
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.11",
@@ -28,7 +27,7 @@ Repository = "https://github.com/AgentRuntimeProtocol/ARP_Auth"
 Issues = "https://github.com/AgentRuntimeProtocol/ARP_Auth/issues"
 
 [project.optional-dependencies]
-dev = ["pytest>=7"]
+dev = ["pytest>=7", "pyright>=1.1.0"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }

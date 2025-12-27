@@ -4,7 +4,7 @@ import json
 import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, Literal, overload
 from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -189,6 +189,16 @@ def _raise_from_http_error(exc: HTTPError) -> TokenResponse:
         error_description=_as_str(payload.get("error_description")),
         details=payload if payload else None,
     )
+
+
+@overload
+def _read_env(name: str, *, required: Literal[True] = True) -> str:
+    ...
+
+
+@overload
+def _read_env(name: str, *, required: Literal[False]) -> str | None:
+    ...
 
 
 def _read_env(name: str, *, required: bool = True) -> str | None:
